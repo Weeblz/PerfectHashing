@@ -1,0 +1,154 @@
+Computer Security and Cryptography
+Software Theory
+Artificial Intelligence
+Mobile and Internet Computing
+Web Design
+Robotics
+Data Mining
+Computer Architecture
+Theory of computation
+Computer Graphics
+
+Wesley Preater
+82.4
+Delhi
+India
+Theory of computation
+
+Ileana Gordy
+91.0
+Jakarta
+Indonesia
+Robotics
+
+Myron Maclean
+100.0
+Dongguan
+China
+Artificial Intelligence
+
+Gus Holbrook
+54.2
+Hanoi
+Vietnam
+Web Design
+
+Titus Colombi
+96.6
+Madrid
+Spain
+Computer Graphics
+
+Dagmar Prisco
+96.5
+Santiago
+Chile
+Software Theory
+
+Dominique Kelliher
+88.1
+Ahmedabad
+India
+Computer Architecture
+
+Lizzy Ghilardi
+32.0
+Mexico City
+Mexico
+Web Design
+
+Laurie Hanselman
+99.5
+Pyongyang
+North Korea
+Computer Graphics
+
+Austin Koch
+94.4
+Pune
+India
+Computer Security and Cryptography
+
+Georgy Mcclure
+75.0
+Abidjan Ivory
+Coast
+Mobile and Internet Computing
+
+Amelita Brenton
+85.7
+Ho Chi Minh City
+Vietnam
+Artificial Intelligence
+
+Hymie Shipp
+84.1
+Berlin
+Germany
+Theory of computation
+
+Merilyn Muto
+55.9
+Johannesburg
+South Africa
+Theory of computation
+
+Anatollo Auguste
+58.0
+Ankara
+Turkey
+Data Mining
+
+Bonnie Devine
+83.0
+Jaipur
+India
+Computer Graphics
+
+Zach Kuo
+70.1
+Surat
+India
+Web Design
+
+Aubrie Katayama
+90.9
+Busan
+South Korea
+Computer Architecture
+
+Care Wiebold
+79.9
+Alexandria
+Egypt
+Computer Graphics
+
+Gloriane Byatt
+97.7
+Ahmedabad
+India
+Software Theory
+
+Taddeusz Jaffee
+100.0
+Tokyo
+Japan
+Computer Graphics
+
+Evonne Puterman
+94.5
+Santiago
+Chile
+Artificial Intelligence
+
+Joshia Bennell
+99.1
+Madrid
+Spain
+Computer Graphics
+
+Ivan Eltsin
+42.0
+Saint Petersburg
+Russia
+Computer Graphics

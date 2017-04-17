@@ -31,6 +31,10 @@ public:
 		this->rating = rating;
 		specialization = s;
 	}
+
+	void show() const {
+		std::cout << "Student Name: " << name << "\nStudent Country: " << homeCountry << "\nStudent City: " << homeCity << std::endl;
+	}
 };
 
 long long encode(std::string name) {
@@ -48,10 +52,10 @@ long long hash(long long a, long long b, long long p, long long m, std::string n
 }
 
 int main() {
-	std::fstream in;
-	in.open("base.txt");
+	std::ifstream in("base.txt");
 	std::string temp, tempCountry, tempCity, tempSpec, tempR;
 	double tempRating;
+	int firstLevelIndex;
 
 	std::vector<student*> hashTable[10];
 	std::vector<group*> Groups(10);
@@ -62,6 +66,8 @@ int main() {
 		getline(in, temp);
 		Groups[i] = new group(temp);
 	}
+
+	getline(in, temp);
 
 	for (int i = 0; i < 24; i++) {
 		getline(in, temp);
@@ -76,8 +82,9 @@ int main() {
 				Groups[j]->groupList.push_back(Students[i]);
 			}
 		}
-		int firstLevelIndex = hash(3, 42, 2999, 10, Students[i]->name);
+		firstLevelIndex = hash(3, 42, 2999, 10, Students[i]->name);
 		counter[firstLevelIndex]++;
+		std::cout << firstLevelIndex << "th node now contains " << counter[firstLevelIndex] << " elements" << std::endl;
 		getline(in, temp);
 	}
 
@@ -88,18 +95,23 @@ int main() {
 	}
 
 	for (int i = 0; i<Students.size(); i++) {
-		long long firstLevelIndex = hash(3, 42, 2999, 10, Students[i]->name);
+		firstLevelIndex = hash(3, 42, 2999, 10, Students[i]->name);
 		long long secondLevelIndex = hash(135664, 1786127, 2999, counter[firstLevelIndex] * counter[firstLevelIndex], Students[i]->name);
 		hashTable[firstLevelIndex][secondLevelIndex] = Students[i];
+		Students[i]->show();
+		std::cout << " is now in " << firstLevelIndex << " - " << secondLevelIndex << std::endl;
 	}
 
-	std::cin >> temp;
-	long long firstLevelIndex = hash(3, 42, 2999, 10, temp);
+	getline(std::cin, temp);
+	firstLevelIndex = hash(3, 42, 2999, 10, temp);
+	std::cout << "first level hash of \"" << temp << "\" is " << firstLevelIndex << std::endl;
 	long long secondLevelIndex = hash(135664, 1786127, 2999, counter[firstLevelIndex] * counter[firstLevelIndex], temp);
 
 	if (hashTable[firstLevelIndex][secondLevelIndex] != nullptr) {
 		std::cout << hashTable[firstLevelIndex][secondLevelIndex]->specialization->name << std::endl;
 		std::cout << hashTable[firstLevelIndex][secondLevelIndex]->rating << std::endl;
 	}
+
+	system("pause");
 	return 0;
 }

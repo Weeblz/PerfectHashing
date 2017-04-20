@@ -59,7 +59,7 @@ int main() {
 
 	std::vector<student*> hashTable[10];
 	std::vector<group*> Groups(10);
-	std::vector<student*> Students(24);
+	std::vector<student*> Students(100);
 	std::vector<int> counter(10, 0);
 
 	for (int i = 0; i < 10; i++) {
@@ -69,7 +69,7 @@ int main() {
 
 	getline(in, temp);
 
-	for (int i = 0; i < 24; i++) {
+	for (int i = 0; i < 100; i++) {
 		getline(in, temp);
 		getline(in, tempR);
 		getline(in, tempCity);
@@ -84,7 +84,6 @@ int main() {
 		}
 		firstLevelIndex = hash(3, 42, 2999, 10, Students[i]->name);
 		counter[firstLevelIndex]++;
-		std::cout << firstLevelIndex << "th node now contains " << counter[firstLevelIndex] << " elements" << std::endl;
 		getline(in, temp);
 	}
 
@@ -98,19 +97,27 @@ int main() {
 		firstLevelIndex = hash(3, 42, 2999, 10, Students[i]->name);
 		long long secondLevelIndex = hash(135664, 1786127, 2999, counter[firstLevelIndex] * counter[firstLevelIndex], Students[i]->name);
 		hashTable[firstLevelIndex][secondLevelIndex] = Students[i];
-		Students[i]->show();
-		std::cout << " is now in " << firstLevelIndex << " - " << secondLevelIndex << std::endl;
 	}
 
-	getline(std::cin, temp);
-	firstLevelIndex = hash(3, 42, 2999, 10, temp);
-	std::cout << "first level hash of \"" << temp << "\" is " << firstLevelIndex << std::endl;
-	long long secondLevelIndex = hash(135664, 1786127, 2999, counter[firstLevelIndex] * counter[firstLevelIndex], temp);
+	do {
+		getline(std::cin, temp);
+		firstLevelIndex = hash(3, 42, 2999, 10, temp);
 
-	if (hashTable[firstLevelIndex][secondLevelIndex] != nullptr) {
-		std::cout << hashTable[firstLevelIndex][secondLevelIndex]->specialization->name << std::endl;
-		std::cout << hashTable[firstLevelIndex][secondLevelIndex]->rating << std::endl;
-	}
+		if (!counter[firstLevelIndex]) {
+			std::cout << "Can't find such student." << std::endl;
+			continue;
+		}
+
+		long long secondLevelIndex = hash(135664, 1786127, 2999, counter[firstLevelIndex] * counter[firstLevelIndex], temp);
+
+		if (hashTable[firstLevelIndex][secondLevelIndex] != nullptr) {
+			std::cout << hashTable[firstLevelIndex][secondLevelIndex]->specialization->name << std::endl;
+			std::cout << hashTable[firstLevelIndex][secondLevelIndex]->rating << std::endl;
+		}
+		else {
+			std::cout << "Can't find such student." << std::endl;
+		}
+	} while (temp != "EXIT");
 
 	system("pause");
 	return 0;
